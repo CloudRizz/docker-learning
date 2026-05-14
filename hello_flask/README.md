@@ -1,89 +1,65 @@
-```md
-# Flask + MySQL Docker Practice Project
 
-This is a small practice project built to understand how to containerise a Python Flask application 
-and connect it to a MySQL database using Docker and Docker Compose.
+# 🐳 Flask + MySQL Docker Practice Project
 
-The goal of this project was to learn:
-- How to build a multi-container application
-- How to connect services using Docker networking
-- How to use Docker Compose to orchestrate services
-- How to use a multi-stage Docker build for a Python app
-- How Flask connects to a MySQL database using `mysqlclient`
+> A containerised Flask application connected to a MySQL database using Docker Compose and a multi-stage Docker build.
 
 ---
 
-## 📦 Tech Stack
+## ⚡ What This Project Demonstrates
 
-- Python 3.8
-- Flask
-- MySQL 8
-- Docker
-- Docker Compose
-- MySQLClient (Python driver)
+- Multi-container Docker architecture
+- Flask ↔ MySQL networking
+- Docker Compose orchestration
+- Multi-stage Docker builds
+- Basic database connectivity from Python
 
 ---
 
-## 🏗️ Architecture Overview
+## 🧱 Tech Stack
 
-The project contains two services:
+🐍 Python (Flask)  
+🐬 MySQL 8  
+🐳 Docker  
+📦 Docker Compose  
+🔌 mysqlclient
 
-### 1. Web (Flask App)
-- Built using a multi-stage Dockerfile
-- Runs a simple Flask web server
-- Connects to the MySQL container on startup
-- Queries the database for the MySQL version
+---
 
-### 2. Database (MySQL)
-- Official MySQL 8 image
-- Runs as a separate container
-- Exposed internally to the Flask app via Docker networking
+## 🏗️ Architecture
+
+```
+
+Browser → Flask App (Container) → MySQL DB (Container)
+
+```
+
+- Flask runs on port `5000`
+- MySQL runs internally on Docker network (`mydb`)
+- Flask queries DB version on request
 
 ---
 
 ## 📁 Project Structure
 
 ```
+
 .
 ├── app.py
 ├── Dockerfile
 ├── docker-compose.yml
 └── README.md
 
-```
-
----
-
-## 🚀 How It Works
-
-When you access the Flask app in the browser:
-
-1. Flask starts and listens on port `5000`
-2. It connects to the MySQL container (`mydb`)
-3. Executes the query:
-   ```sql
-   SELECT VERSION();
 ````
 
-4. Returns the MySQL version in the browser
-
-Example output:
-
-```
-Hello, World! MySQL version: 8.0.xx
-```
-
 ---
 
-## 🐳 Running the Project
-
-### 1. Build and start containers
+## 🚀 How to Run
 
 ```bash
 docker-compose up --build
-```
+````
 
-### 2. Open in browser
+Then open:
 
 ```
 http://localhost:5000
@@ -91,57 +67,58 @@ http://localhost:5000
 
 ---
 
-## 🔌 Docker Networking
+## 🔍 What Happens
 
-Docker Compose automatically creates a network, allowing containers to communicate using service names:
+1. Flask starts inside container
+2. Connects to MySQL container (`mydb`)
+3. Runs:
 
-* `web` → Flask application
-* `mydb` → MySQL database hostname used inside the app
-
-Example:
-
-```
-# python
-host="mydb"
+```sql
+SELECT VERSION();
 ```
 
----
-
-## 🧠 Key Learnings
-
-### ✔ Flask + Database Integration
-
-* How to connect a Python app to MySQL using `mysqlclient`
-
-### ✔ Docker Compose
-
-* Multi-container orchestration
-* Service dependencies using `depends_on`
-
-### ✔ Multi-stage Docker Build
-
-* Build dependencies separated from runtime image
-* Smaller and cleaner production image
+4. Returns result in browser
 
 ---
 
-## ⚠️ Notes
+## 🐳 Docker Concepts Used
 
-* This is a **development/demo project**, not production-ready
-* Passwords are hardcoded for simplicity
-* No persistent volume is configured for MySQL data
-* No health checks or retry logic implemented
+### 🔹 Docker Compose
+
+Used to manage multiple containers together
+
+### 🔹 Service Networking
+
+Containers communicate using service names:
+
+* `mydb` (not localhost)
+
+### 🔹 Multi-stage Build
+
+Reduces image size by separating build + runtime
 
 ---
 
-## 📌 Possible Improvements
+## ⚠️ Limitations
 
-* Add MySQL persistent volume
-* Add environment variable support (`.env`)
-* Add health checks for database readiness
-* Use production WSGI server (e.g. Gunicorn)
-* Improve security (no hardcoded credentials)
+* Hardcoded credentials (dev only)
+* No persistent database storage
+* No health checks
+* Uses Flask dev server (not production-ready)
 
 ---
 
-## 🐳 Practice project for learning Docker, Flask, and MySQL integration.
+## 📌 Improvements (Next Steps)
+
+* Add `.env` file for secrets
+* Add MySQL volume for persistence
+* Replace Flask dev server with Gunicorn
+* Add health checks
+* Add CI/CD pipeline (GitHub Actions)
+
+---
+
+## 👨‍💻 Author
+
+Built for learning Docker, Flask, and container networking.
+
