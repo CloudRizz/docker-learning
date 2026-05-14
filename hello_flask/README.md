@@ -51,7 +51,7 @@ The project contains two services:
 ├── docker-compose.yml
 └── README.md
 
-````
+```
 
 ---
 
@@ -145,4 +145,4 @@ host="mydb"
 
 ---
 
-## 👨‍💻 Practice project for learning Docker, Flask, and MySQL integration.
+## 🐳 Practice project for learning Docker, Flask, and MySQL integration.
