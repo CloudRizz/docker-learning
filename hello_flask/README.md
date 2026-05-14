@@ -44,7 +44,6 @@ The project contains two services:
 ## 📁 Project Structure
 
 ```
-
 .
 ├── app.py
 ├── Dockerfile
