@@ -99,26 +99,8 @@ Reduces image size by separating build + runtime
 
 ---
 
-## ⚠️ Limitations
 
-* Hardcoded credentials (dev only)
-* No persistent database storage
-* No health checks
-* Uses Flask dev server (not production-ready)
-
----
-
-## 📌 Improvements (Next Steps)
-
-* Add `.env` file for secrets
-* Add MySQL volume for persistence
-* Replace Flask dev server with Gunicorn
-* Add health checks
-* Add CI/CD pipeline (GitHub Actions)
-
----
-
-## 👨‍💻 Author
+## 🐳 Rizwan Hussain
 
 Built for learning Docker, Flask, and container networking.
 
