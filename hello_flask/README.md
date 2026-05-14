@@ -1,7 +1,8 @@
 ```md
 # Flask + MySQL Docker Practice Project
 
-This is a small practice project built to understand how to containerise a Python Flask application and connect it to a MySQL database using Docker and Docker Compose.
+This is a small practice project built to understand how to containerise a Python Flask application 
+and connect it to a MySQL database using Docker and Docker Compose.
 
 The goal of this project was to learn:
 - How to build a multi-container application
@@ -100,7 +101,8 @@ Docker Compose automatically creates a network, allowing containers to communica
 
 Example:
 
-```python
+```
+# python
 host="mydb"
 ```
 
@@ -143,9 +145,4 @@ host="mydb"
 
 ---
 
-## 👨‍💻 Author
-
-Practice project for learning Docker, Flask, and MySQL integration.
-
-```
-```
+## 👨‍💻 Practice project for learning Docker, Flask, and MySQL integration.
