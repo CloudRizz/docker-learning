@@ -23,7 +23,7 @@
 📦 Docker Compose  
 🔌 mysqlclient
 
----
+
 
 ## 🏗️ Architecture
 
