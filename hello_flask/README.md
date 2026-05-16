@@ -1,9 +1,9 @@
 
-# 🐳 Flask + MySQL Docker Practice Project
+ ## 🐳 Flask + MySQL Docker Practice Project
 
 > A containerised Flask application connected to a MySQL database using Docker Compose and a multi-stage Docker build.
 
----
+
 
 ## ⚡ What This Project Demonstrates
 
@@ -13,7 +13,7 @@
 - Multi-stage Docker builds
 - Basic database connectivity from Python
 
----
+ 
 
 ## 🧱 Tech Stack
 
@@ -23,7 +23,7 @@
 📦 Docker Compose  
 🔌 mysqlclient
 
----
+ 
 
 ## 🏗️ Architecture
 
@@ -37,7 +37,7 @@ Browser → Flask App (Container) → MySQL DB (Container)
 - MySQL runs internally on Docker network (`mydb`)
 - Flask queries DB version on request
 
----
+ 
 
 ## 📁 Project Structure
 
@@ -51,7 +51,7 @@ Browser → Flask App (Container) → MySQL DB (Container)
 
 ````
 
----
+ 
 
 ## 🚀 How to Run
 
@@ -65,7 +65,7 @@ Then open:
 http://localhost:5000
 ```
 
----
+ 
 
 ## 🔍 What Happens
 
@@ -79,7 +79,7 @@ SELECT VERSION();
 
 4. Returns result in browser
 
----
+ 
 
 ## 🐳 Docker Concepts Used
 
@@ -97,7 +97,7 @@ Containers communicate using service names:
 
 Reduces image size by separating build + runtime
 
----
+ 
 
 
 ## 🐳 Rizwan Hussain
