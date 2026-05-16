@@ -1,9 +1,9 @@
 
- ## 🐳 Flask + MySQL Docker Practice Project
+ # 🐳 Flask + MySQL Docker Practice Project
 
 > A containerised Flask application connected to a MySQL database using Docker Compose and a multi-stage Docker build.
 
-
+#
 
 ## ⚡ What This Project Demonstrates
 
@@ -15,7 +15,7 @@
 
 #
 
-# 🧱 Tech Stack
+## 🧱 Tech Stack
 
 🐍 Python (Flask)  
 🐬 MySQL 8  
