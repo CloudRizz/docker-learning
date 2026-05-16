@@ -13,7 +13,7 @@
 - Multi-stage Docker builds
 - Basic database connectivity from Python
 
----
+#
 
 ## 🧱 Tech Stack
 
