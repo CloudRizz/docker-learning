@@ -15,7 +15,7 @@
 
 #
 
-## 🧱 Tech Stack
+# 🧱 Tech Stack
 
 🐍 Python (Flask)  
 🐬 MySQL 8  
