@@ -81,10 +81,3 @@ This repository is continuously evolving as I experiment, break things, and lear
 **Rizwan Hussain**
 Aspiring Cloud & DevOps Engineer
 Focused on AWS, Docker, Kubernetes, and Infrastructure as Code
-
----
-
-
-
-```
-```
