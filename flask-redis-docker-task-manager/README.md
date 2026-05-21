@@ -1,4 +1,3 @@
-```markdown
 # 🐳 Flask Task Manager (Docker + Redis + Nginx)
 
 A containerised full-stack **task manager application** built using Flask, Redis, Docker Compose, and Nginx reverse proxy. This project demonstrates a multi-tier architecture with persistence, container orchestration, and production-style deployment patterns.
@@ -19,7 +18,6 @@ A containerised full-stack **task manager application** built using Flask, Redis
 ## 🏗️ Architecture
 
 ```
-
 Browser
 ↓
 Nginx (Reverse Proxy)
@@ -27,7 +25,6 @@ Nginx (Reverse Proxy)
 Flask App (Task API + UI)
 ↓
 Redis (Data Store)
-
 ```
 
 ---
@@ -45,7 +42,6 @@ Redis (Data Store)
 ## 📁 Project Structure
 
 ```
-
 .
 ├── app.py
 ├── Dockerfile
@@ -57,9 +53,8 @@ Redis (Data Store)
 ├── nginx/
 │   └── nginx.conf
 └── templates/
-└── index.html
-
-````
+    └── index.html
+```
 
 ---
 
@@ -69,16 +64,14 @@ Redis (Data Store)
 ```bash
 git clone https://github.com/your-username/task-manager.git
 cd task-manager
-````
+```
 
 ### 2. Build and start containers
-
 ```bash
 docker-compose up --build
 ```
 
 ### 3. Open application
-
 ```
 http://localhost:8080
 ```
@@ -88,19 +81,16 @@ http://localhost:8080
 ## 🔌 API Endpoints
 
 ### ➕ Create task
-
 ```http
 POST /api/tasks
 ```
 
 ### 📋 Get all tasks
-
 ```http
 GET /api/tasks
 ```
 
 ### ❌ Delete task
-
 ```http
 DELETE /api/tasks/<task_id>
 ```
@@ -120,7 +110,7 @@ curl -X POST http://localhost:8080/api/tasks \
 ## 🐳 Docker Services
 
 | Service      | Description   |
-| ------------ | ------------- |
+|--------------|--------------|
 | task-manager | Flask backend |
 | redis        | Data storage  |
 | nginx        | Reverse proxy |
@@ -131,25 +121,22 @@ curl -X POST http://localhost:8080/api/tasks \
 
 This project includes a basic CI pipeline that:
 
-* Builds Docker images
-* Validates docker-compose setup
-* Spins up containers to verify system integrity
+- Builds Docker images
+- Validates docker-compose setup
+- Spins up containers to verify system integrity
 
 ---
 
 ## 📈 Future Improvements
 
-* JWT authentication
-* React frontend
-* AWS deployment (ECS/Fargate)
-* Monitoring with Prometheus & Grafana
-* WhatsApp bot integration
+- JWT authentication
+- React frontend
+- AWS deployment (ECS/Fargate)
+- Monitoring with Prometheus & Grafana
+- WhatsApp bot integration
 
 ---
 
 ## 👨‍💻 Author
 
 Built by Rizwan Hussain 
-
-```
-```
