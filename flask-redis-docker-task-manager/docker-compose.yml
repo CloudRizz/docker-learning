@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+
+  task-manager:
+    build: .
+    container_name: task-manager
+    expose:
+      - "5000"
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  redis:
+    build: ./redis
+    container_name: redis
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - task-manager
+
+volumes:
+  redis-data:
