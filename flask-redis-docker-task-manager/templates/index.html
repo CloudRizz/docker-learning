@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
+
+    <!-- FIXED FAVICON (SVG base64 encoded so it actually loads) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNiIgZmlsbD0iI2RiZWFlZiIvPjxwYXRoIGQ9Ik03IDhoNk03IDEyaDEwTTcgMTZoOCIgc3Ryb2tlPSIjM2I4MmY2IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjE3IiBjeT0iOCIgcj0iMS41IiBmaWxsPSIjM2I4MmY2Ii8+PC9zdmc+">
+
     <style>
         * {
             margin: 0;
@@ -45,6 +49,10 @@
             color: #64748b;
             font-size: 14px;
             margin-top: 4px;
+        }
+
+        .logo {
+            margin-bottom: 16px;
         }
 
         .input-group {
@@ -203,10 +211,19 @@
         }
     </style>
 </head>
+
 <body>
 
 <div class="container">
     <header>
+        <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none">
+                <rect width="24" height="24" rx="6" fill="#dbeafe"/>
+                <path d="M7 8h6M7 12h10M7 16h8" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="17" cy="8" r="1.5" fill="#3b82f6"/>
+            </svg>
+        </div>
+
         <h1>Task Manager</h1>
         <p class="subtitle">Stay organized, get things done</p>
         <p class="created-by">Created by Rizwan Hussain</p>
