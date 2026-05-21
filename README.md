@@ -76,8 +76,8 @@ This repository is continuously evolving as I experiment, break things, and lear
 
 ---
 
-## 👤 Author
+## 👤 Rizwan Hussain
 
-**Rizwan Hussain**
-Aspiring Cloud & DevOps Engineer
+
+Cloud & DevOps Engineer
 Focused on AWS, Docker, Kubernetes, and Infrastructure as Code
