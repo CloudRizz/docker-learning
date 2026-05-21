@@ -137,6 +137,5 @@ This project includes a basic CI pipeline that:
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Built by Rizwan Hussain 
 
-Built by Rizwan Hussain 
