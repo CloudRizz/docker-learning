@@ -1,141 +1,120 @@
-# 🐳 Flask Task Manager (Docker + Redis + Nginx)
+````markdown
+# 🐳 Flask Redis Task Manager (Docker + CI/CD)
 
-A containerised full-stack **task manager application** built using Flask, Redis, Docker Compose, and Nginx reverse proxy. This project demonstrates a multi-tier architecture with persistence, container orchestration, and production-style deployment patterns.
+A containerised full-stack task manager application built using **Flask, Redis, and Docker Compose**, with a complete **CI/CD pipeline using GitHub Actions**.
+
+This project demonstrates a production-style multi-container architecture with background task processing, reverse proxying, and automated deployment workflows.
 
 ---
 
 ## 🚀 Features
 
-- 📝 Create, view, and delete tasks
-- ⚡ REST API built with Flask
-- 💾 Redis used for fast in-memory data storage with persistence
-- 🌐 Nginx reverse proxy for routing traffic
-- 🐳 Fully containerised using Docker Compose
-- 🔁 Restart policies for reliability
+- 📝 Create and manage tasks via a Flask web UI
+- ⚡ Asynchronous background task processing using Redis queue
+- 🔁 Worker-based architecture for handling long-running jobs
+- 🐳 Fully containerised with Docker & Docker Compose
+- 🌐 Nginx reverse proxy for routing traffic (if enabled in setup)
+- 🚀 CI/CD pipeline using GitHub Actions
+- ✅ Automated build + validation workflow on every push
 
 ---
 
 ## 🏗️ Architecture
 
-```
-Browser
-↓
-Nginx (Reverse Proxy)
-↓
-Flask App (Task API + UI)
-↓
-Redis (Data Store)
-```
+The system is split into multiple services:
+
+- **Flask Web App (Server)**  
+  Handles HTTP requests, UI rendering, and task creation
+
+- **Redis (Message Broker / Queue)**  
+  Stores task queue and job state for asynchronous processing
+
+- **Worker Service**  
+  Consumes tasks from Redis and processes them in the background
+
+- **Nginx (Optional Reverse Proxy)**  
+  Routes external traffic to the Flask application for production-style deployment
+
+All services communicate over a Docker Compose network.
 
 ---
 
-## 📦 Tech Stack
+## ⚙️ Tech Stack
 
 - Python (Flask)
 - Redis
 - Docker & Docker Compose
 - Nginx
-- HTML (basic UI)
+- GitHub Actions (CI/CD)
 
 ---
 
-## 📁 Project Structure
+## 🔄 CI/CD Pipeline
 
-```
-.
-├── app.py
-├── Dockerfile
-├── requirements.txt
-├── docker-compose.yml
-├── redis/
-│   ├── Dockerfile
-│   └── redis.conf
-├── nginx/
-│   └── nginx.conf
-└── templates/
-    └── index.html
-```
+This project includes a GitHub Actions workflow that automates build and validation.
 
----
+### Pipeline Flow (on push to `main`):
 
-## ⚙️ How to Run Locally
+1. Checkout repository
+2. Build Docker images (Flask + Worker + Nginx if applicable)
+3. Validate container builds
+4. Run optional tests (if configured)
+5. Prepare for deployment stage (future enhancement)
 
-### 1. Clone repository
-```bash
-git clone https://github.com/your-username/task-manager.git
-cd task-manager
-```
+### Benefits
 
-### 2. Build and start containers
-```bash
-docker-compose up --build
-```
-
-### 3. Open application
-```
-http://localhost:8080
-```
+- Ensures consistent builds across environments
+- Prevents broken code from being containerised
+- Automates manual Docker build steps
+- Sets foundation for full deployment automation
 
 ---
 
-## 🔌 API Endpoints
-
-### ➕ Create task
-```http
-POST /api/tasks
-```
-
-### 📋 Get all tasks
-```http
-GET /api/tasks
-```
-
-### ❌ Delete task
-```http
-DELETE /api/tasks/<task_id>
-```
-
----
-
-## 🧪 Example Request
+## 🐳 Running Locally
 
 ```bash
-curl -X POST http://localhost:8080/api/tasks \
--H "Content-Type: application/json" \
--d '{"task":"Learn Docker"}'
+git clone https://github.com/CloudRizz/docker-learning.git
+cd flask-redis-docker-task-manager
+
+docker compose up --build
+````
+
+Once running, access the app:
+
+```
+http://localhost:5000
 ```
 
----
-
-## 🐳 Docker Services
-
-| Service      | Description   |
-|--------------|--------------|
-| task-manager | Flask backend |
-| redis        | Data storage  |
-| nginx        | Reverse proxy |
+> If Nginx is enabled, the app may be accessible via `http://localhost` (port 80)
 
 ---
 
-## 🔁 CI/CD (GitHub Actions)
+## 🔧 Key Improvements
 
-This project includes a basic CI pipeline that:
-
-- Builds Docker images
-- Validates docker-compose setup
-- Spins up containers to verify system integrity
-
----
-
-## 📈 Future Improvements
-
-- JWT authentication
-- React frontend
-- AWS deployment (ECS/Fargate)
-- Monitoring with Prometheus & Grafana
-- WhatsApp bot integration
+* Introduced **CI/CD automation via GitHub Actions**
+* Improved separation of concerns (web / worker / broker)
+* Containerised full system using Docker Compose
+* Added production-style reverse proxy pattern (Nginx)
+* Standardised service communication via Redis queue
 
 ---
 
-## 👨‍💻 Built by Rizwan Hussain 
+## 📌 Future Improvements
 
+* Add unit + integration tests in CI pipeline
+* Add security scanning (Trivy / Snyk)
+* Deploy via AWS (ECS / EC2) using CD pipeline
+* Add observability (Prometheus + Grafana)
+* Migrate to Kubernetes for advanced orchestration practice
+
+---
+
+## 🧠 What this project demonstrates
+
+* Microservices-style architecture design
+* Asynchronous task processing
+* Docker-based container orchestration
+* CI/CD automation with GitHub Actions
+* Production-minded DevOps thinking
+
+---
